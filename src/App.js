@@ -14,8 +14,11 @@ import {
   AuthWrapper,
 } from "./pages";
 
+
 function App() {
   return (
+    <AuthWrapper>
+
     <Router>
       {/* displays navbar , sidebar and footer in all page (shared layout) */}
       <Navbar />
@@ -35,9 +38,9 @@ function App() {
           <Products />
         </Route>
         <Route exact path="/products/:id" children={<SingleProduct />} />
-        <Route exact path="/checkout">
+        <PrivateRoute exact path="/checkout">
           <Checkout />
-        </Route>
+        </PrivateRoute>
         {/* error for all other pages */}
         <Route path="*">
           <Error />
@@ -45,6 +48,7 @@ function App() {
       </Switch>
       <Footer />
     </Router>
+    </AuthWrapper>
   );
 }
 

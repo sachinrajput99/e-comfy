@@ -8,7 +8,7 @@ const ProductImages = ({ images = [{ url: "" }] }) => {
   // images is a array of object
   return (
     <Wrapper>
-      <img src={main.url} alt="main image" />
+      <img src={main.url} alt="main" />
       <div className="gallery">
         {/* for every object in image array */}
         {images.map((image, index) => {

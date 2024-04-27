@@ -29,17 +29,19 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`); //we will have to give urls+id so as to fetch aSingle Product data
+     // eslint-disable-next-line
   }, [id]);
   // whenever id changes component renders again
 
   const history = useHistory();
 
   useEffect(() => {
+    if (error) {
     setTimeout(() => {
-      if (error) {
         history.push("/"); //redirect to home page
-      }
-    }, 3000);
+      }, 3000);
+    }
+    
   }, [error]); //error in dependence as error when we start fetching is false
   // after fetching error its decided whether error is true or false
   // when error is changes from false to true
